@@ -18,9 +18,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/icons.html">
+              <a class="nav-link" href="{{ url('sumber-pemasukan')}}">
                 <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Icons</span>
+                <span class="nav-link-text">Manage Sumber Pemasukan</span>
               </a>
             </li>
             <li class="nav-item">

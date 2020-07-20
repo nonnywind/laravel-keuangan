@@ -15,6 +15,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
+
+    // ini untuk management sumber pemasukan
+    Route::get('sumber-pemasukan', 'SumberController@index');
 });
 
 Route::get('add-user', function () {
