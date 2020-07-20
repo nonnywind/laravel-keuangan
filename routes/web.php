@@ -18,6 +18,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // ini untuk management sumber pemasukan
     Route::get('sumber-pemasukan', 'SumberController@index');
+    Route::get('sumber-pemasukan/add', 'SumberController@add');
+    Route::post('sumber-pemasukan/add', 'SumberController@store');
 });
 
 Route::get('add-user', function () {
