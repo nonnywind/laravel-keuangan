@@ -14,10 +14,12 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col" class="sort" data-sort="name">#</th>
-                <th scope="col" class="sort" data-sort="budget">Nama</th>
-                <th scope="col" class="sort" data-sort="status">Created At</th>
-                <th scope="col" class="sort" data-sort="completion">Action</th>
+                <th scope="col" >#</th>
+                <th scope="col" >Nama</th>
+                <th scope="col" >Created At</th>
+                <th scope="col" >
+                  <center>Action</center>
+                </th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -27,7 +29,16 @@
                     <td>{{$index+1}}</td>
                     <td>{{$sb->nama}}</td>
                     <td>{{$sb->created_at}}</td>
-                    <td><a href=""></a></td>
+                    <td>
+                      <center>
+                        <div>
+                          <a href="{{url('sumber-pemasukan/'.$sb->id)}}">
+                            <i class="ni ni-ruler-pencil"></i>
+                            <span>Edit</span>
+                          </a>
+                        </div>
+                      </center>
+                    </td>
                 </tr>
                 @endforeach
              

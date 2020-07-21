@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\SumberController;
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('welcome');
@@ -20,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('sumber-pemasukan', 'SumberController@index');
     Route::get('sumber-pemasukan/add', 'SumberController@add');
     Route::post('sumber-pemasukan/add', 'SumberController@store');
+    Route::get('sumber-pemasukan/{id}', 'SumberController@edit');
+    Route::put('sumber-pemasukan/{id}', 'SumberController@update');
 });
 
 Route::get('add-user', function () {

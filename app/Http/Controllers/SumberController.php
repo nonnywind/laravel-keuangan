@@ -40,4 +40,25 @@ class SumberController extends Controller
 
         return redirect('sumber-pemasukan');
     }
+
+    public function edit($id)
+    {
+        $data = \DB::table('sumber')->where('id', $id)->first();
+
+        return view('sumber.sumber_edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'nama' => 'required'
+        ]);
+
+        \DB::table('sumber')->where('id', $id)->update([
+            'nama' => $request->nama,
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        return redirect('sumber-pemasukan');
+    }
 }
