@@ -31,6 +31,8 @@
   <!-- Argon Scripts -->
   <!-- Core -->
   @include('layouts.javascript')
+
+  @yield('scripts')
 </body>
 
 </html>

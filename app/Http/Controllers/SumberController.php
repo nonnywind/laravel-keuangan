@@ -61,4 +61,11 @@ class SumberController extends Controller
 
         return redirect('sumber-pemasukan');
     }
+
+    public function delete($id)
+    {
+        \DB::table('sumber')->where('id', $id)->delete();
+
+        return redirect('sumber-pemasukan');
+    }
 }
