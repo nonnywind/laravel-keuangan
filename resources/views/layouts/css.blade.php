@@ -13,3 +13,6 @@
 <!-- Page plugins -->
 <!-- Argon CSS -->
 <link rel="stylesheet" href="{{ asset('argon/assets/css/argon.css?v=1.2.0')}}" type="text/css">
+
+{{-- Yajra --}}
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
