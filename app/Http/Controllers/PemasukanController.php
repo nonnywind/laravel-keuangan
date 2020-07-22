@@ -27,7 +27,10 @@ class PemasukanController extends Controller
             'a.keterangan',
             'b.nama'
         ]);
-        $datatables = Datatables::of($pemasukan);
+        $datatables = Datatables::of($pemasukan)->addColumn('action', function ($ps) {
+            return '<a href="#edit-' . $ps->pemasukan_id . '" class="btn btn-xs  btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            <a href="#edit-' . $ps->pemasukan_id . '" class="btn btn-xs btn-sm btn-danger"><i class="glyphicon glyphicon-edit"></i> Hapus</a>';
+        });
 
         if ($keyword = $request->get('search')['value']) {
             $datatables->filterColumn('rownum', 'whereRaw', '@rownum  + 1 like ?', ["%{$keyword}%"]);

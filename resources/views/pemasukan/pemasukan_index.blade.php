@@ -8,6 +8,8 @@
             <!-- Card header -->
             <div class="card-header border-0">
               <h3 class="mb-0">Data Pemasukan</h3>
+              <a href="#" class="btn btn-outline-default">Tambah Pemasukan</a>
+
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -18,7 +20,7 @@
                     <th scope="col" class="sort" data-sort="budget">Sumber</th>
                     <th scope="col" class="sort" data-sort="status">Nominal</th>
                     <th scope="col" class="sort" data-sort="completion">Tanggal</th>
-                    <th scope="col"></th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 
@@ -45,6 +47,7 @@
             {data: 'nama', name: 'nama'},
             {data: 'nominal', name: 'nominal'},
             {data: 'tanggal', name: 'tanggal'},
+            {data: 'action', name: 'action', orderable: false, searchable: false}
             
         ]
     });
