@@ -30,6 +30,15 @@ class PemasukanController extends Controller
         $datatables = Datatables::of($pemasukan)->addColumn('action', function ($ps) {
             return '<a href="#edit-' . $ps->pemasukan_id . '" class="btn btn-xs  btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
             <a href="#edit-' . $ps->pemasukan_id . '" class="btn btn-xs btn-sm btn-danger"><i class="glyphicon glyphicon-edit"></i> Hapus</a>';
+        })->editColumn('nominal', function ($ps) {
+            $nominal = $ps->nominal;
+            $nominal = 'Rp. ' . number_format($nominal, 0);
+            $nominal = str_replace(',', '.', $nominal);
+            return $nominal;
+        })->editColumn('tanggal', function ($ps) {
+            $tanggal = $ps->tanggal;
+            $tanggal = date('d M Y', strtotime($tanggal));
+            return $tanggal;
         });
 
         if ($keyword = $request->get('search')['value']) {
@@ -37,5 +46,31 @@ class PemasukanController extends Controller
         }
 
         return $datatables->make(true);
+    }
+
+    public function add()
+    {
+        $sumber = \DB::table('sumber')->get();
+        return view('pemasukan.pemasukan_add', compact('sumber'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'sumber_pemasukan' => 'required',
+            'nominal' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        \DB::table('pemasukan')->insert([
+            'pemasukan_id' => \Uuid::generate(4),
+            'sumber_pemasukan' => $request->sumber_pemasukan,
+            'nominal' => $request->nominal,
+            'tanggal' => date('Y-m-d', strtotime($request->tanggal)),
+            'keterangan' => $request->keterangan,
+        ]);
+
+        return redirect('pemasukan');
     }
 }

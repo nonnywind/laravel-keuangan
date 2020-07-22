@@ -11,3 +11,5 @@
 
 {{-- Yajra --}}
 <script type="text/javascript" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+{{-- date picker --}}
+<script src="{{asset('argon/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>

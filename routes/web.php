@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
     // manage pemasukan
     Route::get('pemasukan', 'PemasukanController@index');
     Route::get('pemasukan/yajra', 'PemasukanController@yajra');
+    Route::get('pemasukan/add', 'PemasukanController@add');
+    Route::post('pemasukan/add', 'PemasukanController@store');
 });
 
 Route::get('add-user', function () {

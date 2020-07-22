@@ -8,7 +8,7 @@
             <!-- Card header -->
             <div class="card-header border-0">
               <h3 class="mb-0">Data Pemasukan</h3>
-              <a href="#" class="btn btn-outline-default">Tambah Pemasukan</a>
+              <a href="{{url('pemasukan/add')}}" class="btn btn-outline-default">Tambah Pemasukan</a>
 
             </div>
             <!-- Light table -->
