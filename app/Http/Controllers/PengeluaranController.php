@@ -8,6 +8,8 @@ class PengeluaranController extends Controller
 {
     public function index()
     {
-        return view('pengeluaran.pengeluaran_index');
+        $data = \DB::table('pengeluaran')->get();
+
+        return view('pengeluaran.pengeluaran_index', compact('data'));
     }
 }
