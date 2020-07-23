@@ -29,8 +29,10 @@ class PemasukanController extends Controller
         ]);
         $datatables = Datatables::of($pemasukan)->addColumn('action', function ($ps) {
             $url_edit = url('pemasukan/' . $ps->pemasukan_id);
+            $url_hapus = url('pemasukan/' . $ps->pemasukan_id);
+
             return '<a href="' . $url_edit . '" class="btn btn-xs  btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-            <a href="#edit-' . $ps->pemasukan_id . '" class="btn btn-xs btn-sm btn-danger"><i class="glyphicon glyphicon-edit"></i> Hapus</a>';
+            <a href="' . $url_hapus . '" class="btn btn-xs btn-sm btn-danger btn-hapus"><i class="glyphicon glyphicon-edit"></i> Hapus</a>';
         })->editColumn('nominal', function ($ps) {
             $nominal = $ps->nominal;
             $nominal = 'Rp. ' . number_format($nominal, 0);
@@ -98,6 +100,13 @@ class PemasukanController extends Controller
             'tanggal' => date('Y-m-d', strtotime($request->tanggal)),
             'keterangan' => $request->keterangan
         ]);
+
+        return redirect('pemasukan');
+    }
+
+    public function delete($id)
+    {
+        \DB::table('pemasukan')->where('pemasukan_id', $id)->delete();
 
         return redirect('pemasukan');
     }

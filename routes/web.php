@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('pemasukan/add', 'PemasukanController@store');
     Route::get('pemasukan/{id}', 'PemasukanController@edit');
     Route::put('pemasukan/{id}', 'PemasukanController@update');
+    Route::delete('pemasukan/{id}', 'PemasukanController@delete');
 });
 
 Route::get('add-user', function () {
