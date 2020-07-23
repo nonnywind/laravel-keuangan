@@ -28,7 +28,8 @@ class PemasukanController extends Controller
             'b.nama'
         ]);
         $datatables = Datatables::of($pemasukan)->addColumn('action', function ($ps) {
-            return '<a href="#edit-' . $ps->pemasukan_id . '" class="btn btn-xs  btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
+            $url_edit = url('pemasukan/' . $ps->pemasukan_id);
+            return '<a href="' . $url_edit . '" class="btn btn-xs  btn-sm btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>
             <a href="#edit-' . $ps->pemasukan_id . '" class="btn btn-xs btn-sm btn-danger"><i class="glyphicon glyphicon-edit"></i> Hapus</a>';
         })->editColumn('nominal', function ($ps) {
             $nominal = $ps->nominal;
@@ -69,6 +70,33 @@ class PemasukanController extends Controller
             'nominal' => $request->nominal,
             'tanggal' => date('Y-m-d', strtotime($request->tanggal)),
             'keterangan' => $request->keterangan,
+        ]);
+
+        return redirect('pemasukan');
+    }
+
+    public function edit($id)
+    {
+        $data = \DB::table('pemasukan')->where('pemasukan_id', $id)->first();
+        $sumber = \DB::table('sumber')->get();
+
+        return view('pemasukan.pemasukan_edit', compact('data', 'sumber'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'sumber_pemasukan' => 'required',
+            'nominal' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        \DB::table('pemasukan')->where('pemasukan_id', $id)->update([
+            'sumber_pemasukan' => $request->sumber_pemasukan,
+            'nominal' => $request->nominal,
+            'tanggal' => date('Y-m-d', strtotime($request->tanggal)),
+            'keterangan' => $request->keterangan
         ]);
 
         return redirect('pemasukan');
