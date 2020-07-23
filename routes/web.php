@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // manage pengeluaran
     Route::get('pengeluaran', 'PengeluaranController@index');
+    Route::get('pengeluaran/add', 'PengeluaranController@add');
+    Route::post('pengeluaran/add', 'PengeluaranController@store');
 });
 
 Route::get('add-user', function () {

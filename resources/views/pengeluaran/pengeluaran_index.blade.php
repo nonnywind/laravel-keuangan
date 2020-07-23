@@ -8,7 +8,7 @@
             <!-- Card header -->
             <div class="card-header border-0">
               <h3 class="mb-0">Data Pemasukan</h3>
-              <a href="{{url('pemasukan/add')}}" class="btn btn-outline-default">Tambah Pemasukan</a>
+              <a href="{{url('pengeluaran/add')}}" class="btn btn-outline-default">Tambah Pemasukan</a>
 
             </div>
             <!-- Light table -->
@@ -27,8 +27,8 @@
                     @foreach ($data as $index=>$dt)
                     <tr>
                         <td>{{$index+1}}</td>
-                        <td>{{$dt->nominal}}</td>
-                        <td>{{$dt->tanggal}}</td>
+                        <td>Rp. {{number_format($dt->nominal,0)}}</td>
+                        <td>{{date('d M Y', strtotime($dt->tanggal))}}</td>
                         <td>{{$dt->keterangan}}</td>
                     </tr>
                     @endforeach

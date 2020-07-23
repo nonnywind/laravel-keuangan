@@ -12,4 +12,27 @@ class PengeluaranController extends Controller
 
         return view('pengeluaran.pengeluaran_index', compact('data'));
     }
+
+    public function add()
+    {
+        return view('pengeluaran.pengeluaran_add');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'nominal' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        \DB::table('pengeluaran')->insert([
+            'pengeluaran_id' => \Uuid::generate(4),
+            'nominal' => $request->nominal,
+            'tanggal' => date('Y-m-d', strtotime($request->tanggal)),
+            'keterangan' => $request->keterangan
+        ]);
+
+        return redirect('pengeluaran');
+    }
 }
