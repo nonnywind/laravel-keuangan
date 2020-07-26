@@ -36,9 +36,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/tables.html">
+              <a class="nav-link" href="{{url('laporan')}}">
                 <i class="ni ni-bullet-list-67 text-default"></i>
-                <span class="nav-link-text">Tables</span>
+                <span class="nav-link-text">Laporan Keuangan</span>
               </a>
             </li>
             <li class="nav-item">

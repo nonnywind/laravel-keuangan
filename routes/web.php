@@ -42,6 +42,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('pengeluaran/{id}', 'PengeluaranController@edit');
     Route::put('pengeluaran/{id}', 'PengeluaranController@update');
     Route::delete('pengeluaran/{id}', 'PengeluaranController@delete');
+
+    // laporan keuangan
+    Route::get('laporan', 'LaporanController@index');
+    Route::get('cari-laporan', 'LaporanController@cari');
 });
 
 Route::get('add-user', function () {
