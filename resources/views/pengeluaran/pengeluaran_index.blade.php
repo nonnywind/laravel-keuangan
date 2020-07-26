@@ -20,7 +20,7 @@
                     <th scope="col" class="sort" data-sort="status">Nominal</th>
                     <th scope="col" class="sort" data-sort="completion">Tanggal</th>
                     <th scope="col" class="sort" data-sort="budget">Keterangan</th>
-                    <th scope="col">Action</th>
+                    <th scope="col"><center>Action</center></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,6 +30,12 @@
                         <td>Rp. {{number_format($dt->nominal,0)}}</td>
                         <td>{{date('d M Y', strtotime($dt->tanggal))}}</td>
                         <td>{{$dt->keterangan}}</td>
+                        <td>
+                          <center>
+                            <a href="{{url('pengeluaran/'.$dt->pengeluaran_id)}}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{url('pengeluaran/'.$dt->pengeluaran_id)}}" class="btn btn-danger btn-sm btn-hapus">Hapus</a>
+                          </center>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -90,6 +96,8 @@
         $('#modal-notification').find('form').attr('action', url);
         $('#modal-notification').modal();
       });
+
+        });
 
     </script>
 @endsection

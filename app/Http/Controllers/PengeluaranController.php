@@ -35,4 +35,35 @@ class PengeluaranController extends Controller
 
         return redirect('pengeluaran');
     }
+
+    public function edit($id)
+    {
+        $data = \DB::table('pengeluaran')->where('pengeluaran_id', $id)->first();
+
+        return view('pengeluaran.pengeluaran_edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'nominal' => 'required',
+            'tanggal' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        \DB::table('pengeluaran')->where('pengeluaran_id', $id)->update([
+            'nominal' => $request->nominal,
+            'tanggal' => date('Y-m-d', strtotime($request->tanggal)),
+            'keterangan' => $request->keterangan,
+        ]);
+
+        return redirect('pengeluaran');
+    }
+
+    public function delete($id)
+    {
+        \DB::table('pengeluaran')->where('pengeluaran_id', $id)->delete();
+
+        return redirect('pengeluaran');
+    }
 }

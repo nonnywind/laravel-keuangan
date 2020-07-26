@@ -39,6 +39,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('pengeluaran', 'PengeluaranController@index');
     Route::get('pengeluaran/add', 'PengeluaranController@add');
     Route::post('pengeluaran/add', 'PengeluaranController@store');
+    Route::get('pengeluaran/{id}', 'PengeluaranController@edit');
+    Route::put('pengeluaran/{id}', 'PengeluaranController@update');
+    Route::delete('pengeluaran/{id}', 'PengeluaranController@delete');
 });
 
 Route::get('add-user', function () {
