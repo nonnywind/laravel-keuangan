@@ -65,3 +65,9 @@ Auth::routes();
 Route::get('/home', function () {
     return redirect('/');
 });
+
+Route::get('keluar', function () {
+    \Auth::logout();
+
+    return redirect('login');
+});

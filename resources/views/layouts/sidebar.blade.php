@@ -42,9 +42,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/login.html">
+              <a class="nav-link" href="{{url('keluar')}}">
                 <i class="ni ni-key-25 text-info"></i>
-                <span class="nav-link-text">Login</span>
+                <span class="nav-link-text">Sign Out</span>
               </a>
             </li>
             <li class="nav-item">
