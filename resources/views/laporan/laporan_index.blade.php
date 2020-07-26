@@ -25,6 +25,8 @@
             <div class="card">
                 <div class="card-header border-0">
                     <h3 class="mb-0">Data Pemasukan</h3>
+                    <a href="{{url('export-pemasukan/'.$dari.'/'.$sampai)}}" class=" btn btn-success">Exspot To Excel</a>
+
                 </div>
                 <div class="table-responsive">
                     <table id="table-pemasukan" class="table align-items-center table-flush">
@@ -64,6 +66,8 @@
           <div class="card">
               <div class="card-header border-0">
                   <h3 class="mb-0">Data Pengeluaran</h3>
+                    <a href="{{url('export-pengeluaran/'.$dari.'/'.$sampai)}}" class=" btn btn-warning">Exspot To Excel</a>
+
               </div>
               <div class="table-responsive">
                   <table id="table-pemasukan" class="table align-items-center table-flush">

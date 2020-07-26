@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     // laporan keuangan
     Route::get('laporan', 'LaporanController@index');
     Route::get('cari-laporan', 'LaporanController@cari');
+    Route::get('export-pemasukan/{dari}/{sampai}', 'LaporanController@export_pemasukan');
+    Route::get('export-pengeluaran/{dari}/{sampai}', 'LaporanController@export_pengeluaran');
 });
 
 Route::get('add-user', function () {
